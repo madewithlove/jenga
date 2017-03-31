@@ -1,0 +1,24 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Madewithlove\\Jenga\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Psr\\Http\\ServerMiddleware\\": "psr/",
+      "Madewithlove\\Jenga\\Example\\": "example/src/",
+      "Madewithlove\\Jenga\\Stubs\\": "tests/stubs/"
+    }
+  },
+  "require": {
+    "psr/http-message": "^1.0",
+    "psr/container": "^1.0"
+  },
+  "require-dev": {
+    "league/route": "^3.0",
+    "league/container": "^2.4",
+    "zendframework/zend-diactoros": "^1.3",
+    "phpunit/phpunit": "^6.0"
+  }
+}
