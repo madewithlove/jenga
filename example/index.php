@@ -24,11 +24,11 @@ $container = new Container();
 $container->delegate(new ReflectionContainer());
 $container->share(RouteCollection::class, $router);
 
-$middlewares = [
+$middleware = [
     new RobotsMiddleware(),
     LeagueRouterMiddleware::class,
 ];
 
-$stack = new Stack($container, $middlewares);
+$stack = new Stack($container, $middleware);
 
 (new SapiEmitter())->emit($stack->call(ServerRequestFactory::fromGlobals()));
