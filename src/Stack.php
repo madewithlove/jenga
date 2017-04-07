@@ -18,16 +18,16 @@ class Stack implements MiddlewareInterface
     /**
      * @var array
      */
-    private $middlewares;
+    private $middleware;
 
     /**
      * @param ContainerInterface $container
-     * @param array $middlewares
+     * @param array $middleware
      */
-    public function __construct(ContainerInterface $container, array $middlewares)
+    public function __construct(ContainerInterface $container, array $middleware)
     {
         $this->container = $container;
-        $this->middlewares = $middlewares;
+        $this->middleware = $middleware;
     }
 
     /**
@@ -53,7 +53,7 @@ class Stack implements MiddlewareInterface
         ServerRequestInterface $request,
         DelegateInterface $previous
     ) {
-        foreach (array_reverse($this->middlewares) as $middleware) {
+        foreach (array_reverse($this->middleware) as $middleware) {
             if ($middleware instanceof MiddlewareInterface) {
                 $previous = new Delegate($middleware, $previous);
             } else {
